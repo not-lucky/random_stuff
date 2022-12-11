@@ -1,0 +1,57 @@
+Entrada do exercício: f(ABCD) = Sm(0,2,4,6,8,10,13,14) + d(2,4,10)
+Saída pela tabela verdade: f(ABCD)= A'B'C'D'+A'B'CD'+A'BC'D'+A'BCD'+AB'C'D'+AB'CD'+ABC'D+ABCD'
+
+GRUPO 0:
+NÚMEROS DE 1'S       MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+1                    ['m2', 'm4', 'm8']                                                                                   ['0010', '0100', '1000']
+2                    ['m6', 'm10']                                                                                        ['0110', '1010']
+3                    ['m13', 'm14']                                                                                       ['1101', '1110']
+4                    []                                                                                                   []        
+
+
+GRUPO 1:
+NÚMEROS DE 1'S       MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+1                    ['m2&m6', 'm2&m10', 'm4&m6', 'm8&m10']                                                               ['0X10', 'X010', '01X0', '10X0']
+2                    ['m6&m14', 'm10&m14']                                                                                ['X110', '1X10']
+3                    []                                                                                                   []        
+NOP                  NOP                                                                                                  NOP       
+
+
+GRUPO 2:
+NÚMEROS DE 1'S       MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+1                    ['m2&m6&m10&m14']                                                                                    ['XX10']  
+2                    []                                                                                                   []        
+3                    []                                                                                                   []        
+NOP                  NOP                                                                                                  NOP       
+
+
+GRUPO 3:
+NÚMEROS DE 1'S       MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+1                    []                                                                                                   []        
+2                    []                                                                                                   []        
+3                    []                                                                                                   []        
+NOP                  NOP                                                                                                  NOP       
+
+
+TABELA A: Termos implicantes primos: 
+                     MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+                     ['m2&m6&m10&m14', 'm0&m2&m8&m10', 'm0&m2&m4&m6', 'm13']                                              ['XX10', 'X0X0', '0XX0', '1101']
+
+
+
+TABELA B: Termos implicantes primos ESSENCIAIS: 
+                     MINTERMOS                                                                                            REPRESENTAÇÃO BINÁRIA
+                     ['m2&m6&m10&m14', 'm0&m2&m8&m10', 'm13']                                                             ['XX10', 'X0X0', '1101']
+
+
+
+TABELA C: Mintermos não inclusos pelos primos essenciais: 
+                     MINTERMOS                                                                                           
+                     []                                                                                                  
+
+
+
+Através desses dados, temos as seguintes informações: 
+Sua saída final NECESSARIAMENTE precisa dos termos S = CD' + B'D' + ABC'D + TERMOS_FALTANTES onde 'TERMOS_FALTANTES'
+são os mintermos não inclusos pelos primos essenciais, assim, você deve utilizar implicantes primos
+que não sejam os essenciais (tabela A) para completar sua equação de saída!
