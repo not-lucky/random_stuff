@@ -1,7 +1,3 @@
-# Quine McCluskey algorithm for minimizing logical expressions
-# Author: Suman Adhikari
-
-
 def mul(x, y):  # Multiply 2 minterms
     res = []
     for i in x:
@@ -65,7 +61,7 @@ def flatten(x):  # Flattens a list
 
 def findminterms(
     a
-):  #Function for finding out which minterms are merged. For example, 10-1 is obtained by merging 9(1001) and 11(1011)
+):  # Function for finding out which minterms are merged. For example, 10-1 is obtained by merging 9(1001) and 11(1011)
     gaps = a.count('-')
     if gaps == 0:
         return [str(int(a, 2))]
@@ -122,7 +118,7 @@ for minterm in minterms:
         groups[bin(minterm).count('1')] = [bin(minterm)[2:].zfill(size)]
 # Primary grouping ends
 
-#Primary group printing starts
+# Primary group printing starts
 print("\n\n\n\nGroup No.\tMinterms\tBinary of Minterms\n%s" % ('=' * 50))
 for i in sorted(groups.keys()):
     print("%5d:" % i)  # Prints group number
@@ -130,7 +126,7 @@ for i in sorted(groups.keys()):
         print("\t\t    %-20d%s" %
               (int(j, 2), j))  # Prints minterm and its binary representation
     print('-' * 50)
-#Primary group printing ends
+# Primary group printing ends
 
 # Process for creating tables and finding prime implicants starts
 while True:
@@ -214,8 +210,13 @@ else:  # Else follow Petrick's method for further simplification
     while len(P) > 1:  # Keep multiplying until we get the SOP form of P
         P[1] = multiply(P[0], P[1])
         P.pop(0)
-    final_result = [min(P[0], key=len)
-                    ]  # Choosing the term with minimum variables from P
+    final_result = []  # Choosing the term with minimum variables from P
+    try:
+        x = min(P[0], key=len)
+    except ValueError:
+        x = []
+    final_result.append(x)
+        
     final_result.extend(findVariables(i)
                         for i in EPI)  # Adding the EPIs to final solution
 print('\n\nSolution: F = ' + ' + '.join(''.join(i) for i in final_result))

@@ -1,0 +1,110 @@
+#include <stdio.h>
+int hcf(int m, int n){
+
+if(n==0){
+    return m;
+}
+
+hcf(n, m%n);
+
+}
+
+main(){
+
+int arr[50], n,h;
+printf("total numbers :  \n");
+scanf("%d", &n);
+printf("enter the numbers \n");
+for (int i = 0; i < n; i++)
+{
+   scanf("%d", &arr[i]);
+}
+for (int i = 0; i < n-1; i++)
+{
+    h = hcf(arr[i], arr[i+1]);
+    arr[i+1]=h;
+}
+printf("the hcf is :%d", h);
+
+
+}
+-------------------------------------------------------------
+#include <stdio.h>
+int rev =0, rem;
+int reverse(int n){
+   
+ 
+ if (n>0)
+ {
+    rem= n%10;
+    rev = rev*10 + rem;
+    reverse(n/10);
+ }
+ else{
+   
+   return rev;
+
+ }
+}
+
+main(){
+int n, res;
+scanf("%d", &n);
+res = reverse(n);
+printf("%d", res);
+
+}
+-----------------------------------------------------------------
+#include <stdio.h>
+int count =0, rem;
+int digits(int n){
+   
+ 
+ if (n>0)
+ {
+    count++;
+    digits(n/10);
+ }
+ else{
+   
+   return count;
+
+ }
+}
+
+main(){
+int n, res;
+printf("enter numbers : ");
+scanf("%d", &n);
+res = digits(n);
+printf("%d", res);
+
+}
+-----------------------------------------------------------------------------
+#include <stdio.h>
+int count =0, rem;
+int sum(int n){
+   
+ 
+ if (n>0)
+ {
+    rem = n %10;
+    count = count + rem;
+    sum(n/10);
+ }
+ else{
+   
+   return count;
+
+ }
+}
+
+main(){
+int n, res;
+printf("enter numbers : ");
+scanf("%d", &n);
+res = sum(n);
+printf("%d", res);
+
+}
+--------------------------------------------------------------------------------------------

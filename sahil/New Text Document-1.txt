@@ -1,0 +1,66 @@
+
+a=as.integer(readline(prompt="Enter first number :  "))
+b=as.integer(readline(prompt="Enter first number :  "))
+sum=(a+b)
+print(paste("The sum is : ",sum))
+-------------------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+if((a<0)){
+  print("The number is negative :")
+}else if((a==0)){
+  print("The number is zero")
+}else{
+  print("The number is positive : ")
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+if((a%%2==0)){
+  print("The number is even ")
+}else{
+  print("The number is odd ")
+}
+---------------------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+print(paste('The table of',a,'is '))
+for (i in 1:10 ){
+  print(paste(a,'x',i,'=',a*i))
+  
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+fact=1
+for (i in 1:a) {
+  fact=fact*i
+  
+}
+print(paste('The factorial of ',a,'is : ',fact))
+-------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+count=1
+for (i in 2:a) {
+  if((a%%i)==0){
+    count=(count + 1)
+  }
+  
+}
+if(count==2){
+  print("its a prime number")
+}else{
+  print("its not a prime number ")
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+a=as.integer(readline(prompt="Enter a number :  "))
+num=a
+reverse=0
+while(a>0) {
+  r=(a%%10)
+  reverse=(reverse*10 + r)
+  a=(a%/%10)
+  
+}
+
+if(num==reverse){
+  print("yes the number is palindrome")
+}else{
+  print("No the number is not a palindrome")
+}

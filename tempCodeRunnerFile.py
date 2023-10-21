@@ -1,8 +1,11 @@
-print("Seja bem-vindo ao otimizador Quine-McCluskey para 1 saída!")
-inputs = int(input("Por favor, digite a quantidade de variáveis de entrada: "))
-output = input(
-    "Por favor, digite os mintermos separados por vírgulas (incluindo os dont'care): "
-)
-dontcare = input(
-    "Por favor, indique quais desses mintermos são don't care, separados por virgulas: "
-)
+
+_, *a = input(), Counter(map(int, input().split()))
+# print(a[0])
+money = 0
+for i in range(int(input())):
+    x = list(map(int, input().split()))
+    if a[x[0]] != 0:
+        money += a[x[0]]
+        a[x[0]] = a.get(x[0], 1) - 1
+
+print(money)
